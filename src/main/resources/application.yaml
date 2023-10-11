@@ -6,4 +6,4 @@ spring:
     name: tacocloud
 logging:
   level:
-    root: DEBUG
+    root: INFO
