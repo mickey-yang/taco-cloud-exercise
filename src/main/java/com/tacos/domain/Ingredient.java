@@ -1,6 +1,8 @@
 package com.tacos.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.*;
 
@@ -15,6 +17,8 @@ public class Ingredient implements Serializable {
     @Id
     private final String id;
     private final String name;
+
+    @Enumerated(EnumType.STRING)
     private final Type type;
 
     public enum Type {

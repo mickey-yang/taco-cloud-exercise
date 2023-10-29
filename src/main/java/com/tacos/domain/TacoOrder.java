@@ -28,22 +28,28 @@ public class TacoOrder implements Serializable {
     @Column(name = "delivery_name")
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
+
     @Column(name = "delivery_street")
     @NotBlank(message="Street name is required")
     private String deliveryStreet;
+
     @Column(name = "delivery_city")
     @NotBlank(message="City name is required")
     private String deliveryCity;
+
     @Column(name = "delivery_postal_code")
     @NotBlank(message="Postal code is required")
     private String deliveryPostalCode;
+
     @Column(name = "cc_number")
     @CreditCardNumber(message="Invalid credit card number")
     private String ccNumber;
+
     @Column(name = "cc_expiration")
-    @Pattern(regexp="^(0[1-9]|1[0-2]([\\/])([2-9][0-9])$)",
+    @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$",
             message="Expiry date must be in format MM/YY")
     private String ccExpiration;
+
     @Column(name = "cc_cvv")
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;

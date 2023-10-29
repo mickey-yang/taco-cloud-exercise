@@ -4,6 +4,8 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+  jpa:
+    defer-datasource-initialization: true
 logging:
   level:
     root: INFO
