@@ -6,6 +6,14 @@ spring:
     name: tacocloud
   jpa:
     defer-datasource-initialization: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 599197172710-efa0msdp08cvjmaq1nihktmfodum7rdr.apps.googleusercontent.com
+            clientSecret: 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
+            scope: email, profile
 logging:
   level:
     root: INFO
