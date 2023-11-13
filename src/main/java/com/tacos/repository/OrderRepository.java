@@ -1,6 +1,8 @@
 package com.tacos.repository;
 
 import com.tacos.domain.TacoOrder;
+import com.tacos.security.RegisteredUser;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 import java.time.LocalDate;
@@ -17,4 +19,5 @@ public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
 
     List<TacoOrder> findByDeliveryCityOrderByDeliveryName(String city);
 
+    List<TacoOrder> findByUserOrderByPlacedAtDesc(RegisteredUser user, Pageable pageable);
 }

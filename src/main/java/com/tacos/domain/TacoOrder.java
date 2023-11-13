@@ -1,5 +1,6 @@
 package com.tacos.domain;
 
+import com.tacos.security.RegisteredUser;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -24,6 +25,9 @@ public class TacoOrder implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate placedAt;
+
+    @ManyToOne
+    private RegisteredUser user;
 
     @Column(name = "delivery_name")
     @NotBlank(message="Delivery name is required")
