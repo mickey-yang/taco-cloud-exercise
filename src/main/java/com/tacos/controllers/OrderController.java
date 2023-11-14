@@ -7,14 +7,18 @@ import com.tacos.security.RegisteredUser;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -69,4 +73,25 @@ public class OrderController {
 
         return "redirect:/";
     }
+
+    @PutMapping(path = "/{id}", consumes = "application/json")
+    public TacoOrder putOrder(@PathVariable("id") Long id
+            , @RequestBody TacoOrder order) {
+        Optional<TacoOrder> result = orderRepo.findById(id);
+        if (result.isPresent()) {
+            order.setId(id);
+        }
+        return orderRepo.save(order);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteOrder(@PathVariable("id") Long id) {
+        try {
+            orderRepo.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

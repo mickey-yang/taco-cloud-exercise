@@ -8,6 +8,8 @@ import lombok.Data;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,16 +22,44 @@ public class Taco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @NotNull
-    @Size(min=3, message="Name must be at least 3 characters long")
+    @Size(min = 3, message = "Name must be at least 3 characters long")
     private String name;
 
     @NotNull
-    @Size(min=1, message="You must choose at least 1 ingredient")
+    @Size(min = 1, message = "You must choose at least 1 ingredient")
     @ManyToMany()
     private List<Ingredient> ingredients;
+
+    @PrePersist
+    void createdAt() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public static class TacoBuilder {
+
+        private String name = "No Name";
+        private List<Ingredient> ingredients = new ArrayList<>();
+
+        public TacoBuilder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public TacoBuilder withIngredientsList(List<Ingredient> list) {
+            this.ingredients = ingredients;
+            return this;
+        }
+
+        public Taco build() {
+            Taco result = new Taco();
+            result.setName(name);
+            result.setIngredients(ingredients);
+            return result;
+        }
+    }
 
 
 }
