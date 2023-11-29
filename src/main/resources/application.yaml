@@ -6,6 +6,9 @@ spring:
     name: tacocloud
   jpa:
     defer-datasource-initialization: true
+  data:
+    rest:
+      base-path: /data-api
   security:
     oauth2:
       client:

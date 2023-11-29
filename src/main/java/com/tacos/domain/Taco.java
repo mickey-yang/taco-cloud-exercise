@@ -4,16 +4,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
+@RestResource(rel = "tacos", path = "tacos")
 public class Taco implements Serializable {
 
     @Serial
