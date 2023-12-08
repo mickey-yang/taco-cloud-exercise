@@ -1,12 +1,11 @@
-package com.tacos;
+package com.tacos.api;
 
-import com.tacos.domain.Ingredient;
-import com.tacos.domain.Ingredient.Type;
-import com.tacos.domain.Taco;
-import com.tacos.domain.Taco.TacoBuilder;
-import com.tacos.repository.IngredientRepository;
-import com.tacos.repository.TacoRepositroy;
-import com.tacos.security.RegisteredUserRepository;
+import com.tacos.api.domain.Ingredient;
+import com.tacos.api.domain.Ingredient.Type;
+import com.tacos.api.domain.Taco;
+import com.tacos.api.repository.IngredientRepository;
+import com.tacos.api.repository.TacoRepositroy;
+import com.tacos.api.security.RegisteredUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class TacoCloudApplication {
