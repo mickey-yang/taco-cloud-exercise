@@ -15,10 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class TacoCloudApplication {
+public class TacoApiMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(TacoCloudApplication.class, args);
+        SpringApplication.run(TacoApiMain.class, args);
     }
 
     @Bean
