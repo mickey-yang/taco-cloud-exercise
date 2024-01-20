@@ -5,7 +5,7 @@ import com.tacos.api.domain.Ingredient.Type;
 import com.tacos.api.domain.Taco;
 import com.tacos.api.repository.IngredientRepository;
 import com.tacos.api.repository.TacoRepositroy;
-import com.tacos.api.security.RegisteredUserRepository;
+import com.tacos.api.repository.RegisteredUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

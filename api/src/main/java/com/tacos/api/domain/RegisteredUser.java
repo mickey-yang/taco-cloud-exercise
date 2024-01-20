@@ -1,4 +1,4 @@
-package com.tacos.api.security;
+package com.tacos.api.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,7 +37,7 @@ public class RegisteredUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // In this exaxmple, there is only one role. In real examples, there would be logic here to grant roles
+        // In this example, there is only one role. In real examples, there would be logic here to grant roles
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 

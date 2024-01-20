@@ -1,7 +1,7 @@
 package com.tacos.api.repository;
 
 import com.tacos.api.domain.TacoOrder;
-import com.tacos.api.security.RegisteredUser;
+import com.tacos.api.domain.RegisteredUser;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,5 +1,7 @@
-package com.tacos.api.security;
+package com.tacos.api.config;
 
+import com.tacos.api.domain.RegisteredUser;
+import com.tacos.api.repository.RegisteredUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -10,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -30,7 +33,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // In-memory user details service
+//    In-memory user details service
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         List<UserDetails> usersList = new ArrayList<>();
@@ -45,11 +48,11 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(usersList);
     }
 
-    // Persisted user details service
+//     Persisted user details service
 //    @Bean
-//    public UserDetailsService userDetailsService(UserRepository userRepository) {
+//    public UserDetailsService userDetailsService(RegisteredUserRepository userRepository) {
 //        return username -> {
-//            com.tacos.api.security.User user = userRepository.findByUsername(username);
+//            RegisteredUser user = userRepository.findByUsername(username);
 //            if (user != null) return user;
 //
 //            throw new UsernameNotFoundException("User '" + username + "' not found");
@@ -63,17 +66,20 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-
         return http
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(mvc.pattern("/design"), mvc.pattern("/orders")).hasRole("USER")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/admin/**")).hasRole("ADMIN")
+                        .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/ingredients")).hasAuthority("SCOPE_writeIngredients")
+                        .requestMatchers(mvc.pattern(HttpMethod.DELETE, "/api//ingredients")).hasAuthority("SCOPE_deleteIngredients")
                         .requestMatchers(mvc.pattern("/"), mvc.pattern("/**")).permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/design"))
                 .oauth2Login(config -> config
                         .loginPage("/login"))
+                // Accept access tokens for User Info and/or Client Registration
+                .oauth2ResourceServer(oath2 -> oath2.jwt(Customizer.withDefaults()))
                 .logout(Customizer.withDefaults())
                 .build();
 

@@ -1,6 +1,5 @@
 package com.tacos.api.domain;
 
-import com.tacos.api.security.RegisteredUser;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
