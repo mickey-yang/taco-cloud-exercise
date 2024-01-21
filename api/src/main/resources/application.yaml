@@ -20,16 +20,6 @@ spring:
             clientId: 599197172710-efa0msdp08cvjmaq1nihktmfodum7rdr.apps.googleusercontent.com
             clientSecret: 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
             scope: email, profile
-#          taco-admin-client:
-#            provider: tacocloud
-#            client-id: taco-admin-client
-#            client-secret: secret
-#            authorization-grant-type: authorization_code
-#            redirect-uri: "http://127.0.0.1:9090/login/oauth2/code/{registrationId}"
-#            scope: writeIngredients,deleteIngredients,openid
-#        provider:
-#          tacocloud:
-#            issuer-uri: http://localhost:9000
 
 logging:
   level:

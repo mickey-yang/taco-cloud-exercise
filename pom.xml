@@ -24,6 +24,7 @@
     <modules>
         <module>authentication</module>
         <module>api</module>
+        <module>client</module>
     </modules>
 
     <dependencyManagement>
