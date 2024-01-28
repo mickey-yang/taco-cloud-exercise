@@ -1,6 +1,6 @@
 package com.tacos.api.services;
 
-import com.tacos.api.repository.OrderRepository;
+import com.tacos.api.repo.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;

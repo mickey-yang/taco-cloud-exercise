@@ -1,7 +1,7 @@
 package com.tacos.api.controllers;
 
 import com.tacos.api.domain.Taco;
-import com.tacos.api.repository.TacoRepositroy;
+import com.tacos.api.repo.TacoRepositroy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

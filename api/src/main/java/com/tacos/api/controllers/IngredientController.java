@@ -1,7 +1,7 @@
 package com.tacos.api.controllers;
 
 import com.tacos.api.domain.Ingredient;
-import com.tacos.api.repository.IngredientRepository;
+import com.tacos.api.repo.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

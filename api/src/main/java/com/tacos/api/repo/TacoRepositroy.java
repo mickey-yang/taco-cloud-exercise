@@ -1,4 +1,4 @@
-package com.tacos.api.repository;
+package com.tacos.api.repo;
 
 import com.tacos.api.domain.Taco;
 import org.springframework.data.jpa.repository.JpaRepository;
