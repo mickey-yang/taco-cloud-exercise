@@ -68,7 +68,7 @@ public class SecurityConfig {
                         .requestMatchers(mvc.pattern("/design"), mvc.pattern("/orders")).hasRole("USER")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/admin/**")).hasRole("ADMIN")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/ingredients")).hasAuthority("SCOPE_writeIngredients")
-                        .requestMatchers(mvc.pattern(HttpMethod.DELETE, "/api//ingredients")).hasAuthority("SCOPE_deleteIngredients")
+                        .requestMatchers(mvc.pattern(HttpMethod.DELETE, "/api/ingredients")).hasAuthority("SCOPE_deleteIngredients")
                         .requestMatchers(mvc.pattern("/"), mvc.pattern("/**")).permitAll())
                 .formLogin(form -> form
                         .loginPage("/login")
