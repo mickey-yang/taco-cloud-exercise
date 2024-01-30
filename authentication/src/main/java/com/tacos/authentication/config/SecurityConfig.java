@@ -1,6 +1,6 @@
 package com.tacos.authentication.config;
 
-//import com.tacos.authentication.repo.AuthUserRepository;
+import com.tacos.authentication.repo.AuthUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -32,10 +32,10 @@ public class SecurityConfig {
 //    }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user1 = User.withDefaultPasswordEncoder()
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        UserDetails user1 = User.builder()
                 .username("tacochef")
-                .password("password")
+                .password(passwordEncoder.encode("password"))
                 .roles("ADMIN")  // UserBuilder will append ROLE_
                 .build();
 
