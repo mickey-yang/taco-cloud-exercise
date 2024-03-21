@@ -6,16 +6,16 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-//@Configuration
+@Configuration
 public class SecurityConfig {
 
 //    @Bean
-    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
-                .oauth2Login(oath2Login -> oath2Login.loginPage("/oauth2/authorization/login-client"))
-                .oauth2Client(Customizer.withDefaults())
-                .build();
-    }
+//    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+//        return http
+//                .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
+//                .oauth2Login(oath2Login -> oath2Login.loginPage("/oauth2/authorization/login-client"))
+//                .oauth2Client(Customizer.withDefaults())
+//                .build();
+//    }
 
 }

@@ -4,14 +4,17 @@ LfpBmoB4j3nMgd_ChabpQxEYhlnYiZDVVRevlMfeb9Ns03l0woTkCRamn7Dc21pDwxRanCUKr0QP1pzg
 http://localhost:9000/oauth2/authorize?response_type=code&client_id=taco-admin-client&redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client&scope=writeIngredients deleteIngredients
 ## and get code
 
-http://127.0.0.1:9090/login/oauth2/code/taco-admin-client?code=OjyduPmptIzT1s0fMoQPC2xwKuOqbIinYdafvPZrxoCmpp4rgRVtwMdGKxtXQckcVt71hbs-QrqA3itICkm7RAfP7ThjDbW_shTsDvCtsv5ZcloEA4rBDohArlQplCtY
+http://authserver:9000/oauth2/authorize?response_type=code&client_id=login-client&redirect_uri=http://localhost:9090/login/oauth2/code/login-client&scope=openid profile
 
-curl localhost:9000/oauth2/token \
+
+http://localhost:9090/login/oauth2/code/login-client?code=1WujhcRTmrPYWO5af7HX6IfpeIteRtfLnfgCcNNVvVnS3k_NI-gAqYJmKC5vuOuKmEWfG2K2viLVWt7A1xrzbxl0JUiOUvhXVMwyIw9fOZWwUVk1GqWUwxLkLooHtti2&state=FI0MfCKHtNHpwh9CyWN4zM1tIlGGo1FDzX-hDHWqTaY%3D
+
+curl authserver:9000/oauth2/token \
     -H"Content-type: application/x-www-form-urlencoded" \
-    -d"grant_type=authorization_code" \
-    -d"redirect_uri=http://127.0.0.1:9090/login/oauth2/code/taco-admin-client" \
-    -d"code=OjyduPmptIzT1s0fMoQPC2xwKuOqbIinYdafvPZrxoCmpp4rgRVtwMdGKxtXQckcVt71hbs-QrqA3itICkm7RAfP7ThjDbW_shTsDvCtsv5ZcloEA4rBDohArlQplCtY" \
-    -u taco-admin-client:secret
+    -d"grant_type=refresh_token" \
+    -d"redirect_uri=http://localhost:9090/login/oauth2/code/login-client" \
+    -d"code=1WujhcRTmrPYWO5af7HX6IfpeIteRtfLnfgCcNNVvVnS3k_NI-gAqYJmKC5vuOuKmEWfG2K2viLVWt7A1xrzbxl0JUiOUvhXVMwyIw9fOZWwUVk1GqWUwxLkLooHtti2" \
+    -u login-client:secret
 
 {"access_token":"eyJraWQiOiI2ODBlYWE2Zi1iMDUxLTQ3Y2UtYmE0ZS1lOGU5MmZjOWIyMTciLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ0YWNvY2hlZiIsImF1ZCI6InRhY28tYWRtaW4tY2xpZW50IiwibmJmIjoxNzA1NzI3MzE2LCJzY29wZSI6WyJkZWxldGVJbmdyZWRpZW50cyIsIndyaXRlSW5ncmVkaWVudHMiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiZXhwIjoxNzA1NzI3NjE2LCJpYXQiOjE3MDU3MjczMTZ9.p2z2LzQ00P2W-hC3vc2ohqY-FGcm3SHAeBFjSS--1gagPLkXgd2qzewr66uTgtLg2fssONcGMrrZOa2I_pDculL5-7HKXrWKMVSQIJpTYiV-WYWo69qXxyxPVEudKZ-hTHvnP8seEI3b8E78xEKO42l9b_Z7N-DKyifagFYwruNzyskPwXIryoeJ65xEQPXXgZ1hTVPl-VFSkgMwAt3tLDgrVM2CLAGKOQrJ9TX8t9itP_Tdwz9mhRhYBOdHRk8SIV9X0jKqoRKx7yVpGAq0kSOEXyfB533neVuYOBv3UiawHJk_Eci_QsUhLGEtSwr7EdOZnq8kn1RA4MunOFXDNg","refresh_token":"4SqOemPtpLuKxDn2_ImemUASiPl5ypwTjbSl5WwYUbov6Mu9o40ShTFyKj7qgIw6boqsdowUCR4pqzEwZWebbOCTzV4kCvNHBu34L9ApA6sbMUftbm4OqzPeMbaisG0G","scope":"deleteIngredients writeIngredients","token_type":"Bearer","expires_in":299}
 
