@@ -9,13 +9,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-//    @Bean
-//    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-//        return http
-//                .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
-//                .oauth2Login(oath2Login -> oath2Login.loginPage("/oauth2/authorization/login-client"))
-//                .oauth2Client(Customizer.withDefaults())
-//                .build();
-//    }
+    @Bean
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests(authz -> authz.anyRequest().authenticated())
+                .oauth2Login(oath2Login -> oath2Login.loginPage("/oauth2/authorization/taco-admin-client"))
+                .oauth2Client(Customizer.withDefaults())
+                .build();
+    }
 
 }

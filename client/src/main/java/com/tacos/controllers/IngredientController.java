@@ -18,7 +18,8 @@ public class IngredientController {
 
     @GetMapping
     public String getIngredients(Model model) {
-        model.addAttribute("ingredients", ingredientService.findAll());
+        Iterable<Ingredient> all = ingredientService.findAll();
+        model.addAttribute("ingredients", all);
         return "ingredients";
     }
 
