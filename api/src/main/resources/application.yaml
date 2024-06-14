@@ -20,10 +20,16 @@ spring:
             clientId: 599197172710-efa0msdp08cvjmaq1nihktmfodum7rdr.apps.googleusercontent.com
             clientSecret: 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
             scope: email, profile
+  kafka:
+    bootstrap-servers:
+#      - kafka.tacocloud.com:9092
+      - localhost:9092
+    template:
+      default-topic: tacocloud.orders.topic
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
 taco:
   orders:
     pageSize: 10

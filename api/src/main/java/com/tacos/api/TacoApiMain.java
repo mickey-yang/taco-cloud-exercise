@@ -1,20 +1,23 @@
 package com.tacos.api;
 
-import com.tacos.api.domain.Ingredient;
-import com.tacos.api.domain.Ingredient.Type;
-import com.tacos.api.domain.Taco;
 import com.tacos.api.repo.IngredientRepository;
-import com.tacos.api.repo.TacoRepositroy;
 import com.tacos.api.repo.RegisteredUserRepository;
+import com.tacos.api.repo.TacoRepositroy;
+import com.tacos.domain.Ingredient;
+import com.tacos.domain.Taco;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 
+import static com.tacos.domain.Ingredient.Type;
+
 @SpringBootApplication
+@EntityScan("com.tacos.domain")
 public class TacoApiMain {
 
     public static void main(String[] args) {
@@ -28,7 +31,7 @@ public class TacoApiMain {
             PasswordEncoder encoder,
             TacoRepositroy tacoRepositroy
     ) {
-		return args -> {
+        return args -> {
             Ingredient flourTortilla = new Ingredient(
                     "FLTO", "Flour Tortilla", Type.WRAP);
             Ingredient cornTortilla = new Ingredient(

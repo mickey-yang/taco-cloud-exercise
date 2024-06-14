@@ -1,6 +1,6 @@
 package com.tacos.api.repo;
 
-import com.tacos.api.domain.Ingredient;
+import com.tacos.domain.Ingredient;
 import org.springframework.data.repository.CrudRepository;
 
 

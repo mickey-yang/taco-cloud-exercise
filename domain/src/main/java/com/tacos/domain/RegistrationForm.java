@@ -1,4 +1,4 @@
-package com.tacos.api.domain;
+package com.tacos.domain;
 
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;

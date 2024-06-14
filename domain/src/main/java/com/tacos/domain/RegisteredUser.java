@@ -1,4 +1,4 @@
-package com.tacos.api.domain;
+package com.tacos.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

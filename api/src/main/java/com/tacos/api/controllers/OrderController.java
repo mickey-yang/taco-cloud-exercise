@@ -1,9 +1,9 @@
 package com.tacos.api.controllers;
 
 import com.tacos.api.config.OrderConfig;
-import com.tacos.api.domain.TacoOrder;
 import com.tacos.api.repo.OrderRepository;
-import com.tacos.api.domain.RegisteredUser;
+import com.tacos.domain.RegisteredUser;
+import com.tacos.domain.TacoOrder;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.tacos.api.controllers;
 
-import com.tacos.api.domain.RegistrationForm;
 import com.tacos.api.repo.RegisteredUserRepository;
+import com.tacos.domain.RegistrationForm;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
