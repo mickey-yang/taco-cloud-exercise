@@ -1,5 +1,6 @@
 package com.tacos.api.config;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -67,6 +68,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers(mvc.pattern("/design"), mvc.pattern("/orders")).hasRole("USER")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/admin/**")).hasRole("ADMIN")
+                        .requestMatchers(EndpointRequest.toAnyEndpoint().excluding("health", "info")).hasRole("ADMIN")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/ingredients")).hasAuthority("SCOPE_writeIngredients")
                         .requestMatchers(mvc.pattern(HttpMethod.DELETE, "/api/ingredients")).hasAuthority("SCOPE_deleteIngredients")
                         .requestMatchers(mvc.pattern("/"), mvc.pattern("/**")).permitAll())
