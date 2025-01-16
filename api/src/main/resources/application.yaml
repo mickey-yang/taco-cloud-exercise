@@ -34,6 +34,8 @@ management:
 logging:
   level:
     root: INFO
+server:
+  shutdown: graceful
 taco:
   orders:
     pageSize: 10
